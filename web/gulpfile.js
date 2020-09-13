@@ -69,10 +69,15 @@ async function webpackDevelopmentServer() {
     sockHost,
     sockPort,
   }
+  // console.log("### webpackConfig", webpackConfig)
+  // console.log("### 0", new Date())
   WebpackDevServer.addDevServerEntrypoints(webpackConfig, options)
+  // console.log("### 1", new Date())
   const server = new WebpackDevServer(createWebpackCompiler(webpackConfig), options)
   await new Promise((resolve, reject) => {
+    // console.log("### 2", new Date())
     server.listen(3080, '0.0.0.0', error => (error ? reject(error) : resolve()))
+    // console.log("### 3", new Date())
   })
 }
 

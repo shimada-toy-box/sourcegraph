@@ -14,12 +14,14 @@ const { webpack: webWebpack, webpackDevServer: webWebpackDevServer } = require('
 /**
  * Generates files needed for builds.
  */
+// const generate = gulp.parallel(schema, graphQlSchema, graphQlOperations)
 const generate = gulp.parallel(schema, graphQlSchema, graphQlOperations)
 
 /**
  * Generates files needed for builds whenever files change.
  */
 const watchGenerate = gulp.series(generate, gulp.parallel(watchSchema, watchGraphQlSchema, watchGraphQlOperations))
+// const watchGenerate = gulp.series(gulp.parallel(watchSchema, watchGraphQlSchema, watchGraphQlOperations))
 
 /**
  * Builds everything.
@@ -30,6 +32,7 @@ const build = gulp.series(generate, webWebpack)
  * Watches everything and rebuilds on file changes.
  */
 const watch = gulp.parallel(watchGenerate, webWebpackDevServer)
+// const watch = gulp.series(webWebpackDevServer, watchGenerate)
 
 module.exports = {
   generate,

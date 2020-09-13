@@ -219,6 +219,7 @@
     "open": "^7.0.4",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "p-retry": "^4.2.0",
+    "parallel-webpack": "^2.6.0",
     "postcss-focus-visible": "^5.0.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^2.0.5",
